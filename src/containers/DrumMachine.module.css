@@ -1,0 +1,11 @@
+.GridWrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	padding: 10px;
+	margin: 0 auto;
+	width: 50vmin;
+	/* height: calc(100vh - 4em); */
+	height: 50vh;
+	grid-gap: 2em;
+}
