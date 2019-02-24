@@ -8,19 +8,20 @@ class DrumMachine extends Component {
 		data: [...data]
 	};
 	componentDidMount() {
-		console.log("componentDidMount");
-		document.getElementById("clap").focus();
+		document.addEventListener("keydown", this.keyPressedHandler);
 	}
-
-	playSound = el => {
+	componentWillUnmount() {
+		document.removeEventListener("keydown", this.keyPressedHandler);
+	}
+	playSoundHandler = el => {
 		const sound = new Audio(el);
 		return sound.play();
 	};
-	keyPressed = el => {
+	keyPressedHandler = el => {
 		console.log(el.keyCode);
 		this.state.data.map(item => {
 			if (el.keyCode === item.keyCode) {
-				return this.playSound(item.source);
+				return this.playSoundHandler(item.source);
 			}
 			return null;
 		});
@@ -32,9 +33,8 @@ class DrumMachine extends Component {
 					key={index}
 					id={el.id}
 					hotkey={el.hotkey}
-					keyCode={el.keyCode}
 					sound={el.source}
-					playSound={() => this.playSound(el.source)}
+					playSound={() => this.playSoundHandler(el.source)}
 					keyPress={this.keyPressed}
 				/>
 			);

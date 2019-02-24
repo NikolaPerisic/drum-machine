@@ -2,10 +2,8 @@ import React from "react";
 import "./Soundpad.scss";
 
 const soundpad = props => {
-	const myRef = React.createRef();
-
 	return (
-		<div className="Wrapper">
+		<div className="Wrapper" id="wrapper">
 			<div
 				onClick={props.playSound}
 				onKeyDown={props.keyPress}
@@ -13,7 +11,7 @@ const soundpad = props => {
 				id={props.id}
 			>
 				{props.hotkey}
-				<audio ref={myRef} src={props.sound} />
+				{/* <audio src={props.sound} /> */}
 			</div>
 		</div>
 	);
