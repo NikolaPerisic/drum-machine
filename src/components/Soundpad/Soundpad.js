@@ -3,7 +3,7 @@ import "./Soundpad.scss";
 
 const soundpad = props => {
     return (
-        <div className="Wrapper" id="wrapper">
+        <div className="Soundpads" id="soundpads">
             <div
                 onClick={props.playSound}
                 onKeyDown={props.keyPress}

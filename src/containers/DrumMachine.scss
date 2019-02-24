@@ -1,11 +1,11 @@
-.Soundpads {
+.Wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    padding: 10px;
-    margin: 0 auto;
-    width: auto;
-    // height: auto;
-    grid-gap: 2em;
+    width: 60vmin;
+    height: 60vmin;
+    margin: 2vmin auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1rem;
+    padding: 1rem;
     background-color: aqua;
 }

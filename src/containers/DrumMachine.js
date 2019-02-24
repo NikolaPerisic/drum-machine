@@ -48,7 +48,7 @@ class DrumMachine extends Component {
         return (
             <div id="drum-machine">
                 <div id="display">{this.state.display}</div>
-                <div className="Soundpads">{soundpads}</div>
+                <div className="Wrapper">{soundpads}</div>
             </div>
         );
     }
