@@ -1,10 +1,12 @@
 import React from "react";
-import classes from "./Soundpad.module.css";
+import "./Soundpad.scss";
 
 const soundpad = props => {
+	const myRef = React.createRef();
 	return (
-		<div className={classes.Wrapper}>
-			<div />
+		<div className="Wrapper">
+			<div onClick={props.playSound}>{props.hotkey}</div>
+			<audio ref={myRef} src={"../../assets/sounds/" + props.sound} autoPlay />
 		</div>
 	);
 };

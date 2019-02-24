@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./App.scss";
 import DrumMachine from "./containers/DrumMachine";
 
 class App extends Component {

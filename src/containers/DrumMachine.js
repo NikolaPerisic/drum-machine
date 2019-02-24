@@ -1,27 +1,26 @@
 import React, { Component } from "react";
 import Soundpad from "../components/Soundpad/Soundpad";
-import classes from "./DrumMachine.module.css";
+import "./DrumMachine.scss";
+import data from "../assets/Data/Data";
 
 class DrumMachine extends Component {
 	state = {
-		id: "",
-		hotkey: "",
-		source: ""
+		data: [...data]
 	};
+
 	render() {
-		return (
-			<div className={classes.GridWrapper}>
-				<Soundpad />
-				<Soundpad />
-				<Soundpad />
-				<Soundpad />
-				<Soundpad />
-				<Soundpad />
-				<Soundpad />
-				<Soundpad />
-				<Soundpad />
-			</div>
-		);
+		const instruments = this.state.data.map((el, index) => {
+			return (
+				<Soundpad
+					key={index}
+					id={el.id}
+					hotkey={el.hotkey}
+					sound={el.source}
+					keyCode={el.keyCode}
+				/>
+			);
+		});
+		return <div className="GridWrapper">{instruments}</div>;
 	}
 }
 
