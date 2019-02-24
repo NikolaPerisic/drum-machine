@@ -9,8 +9,9 @@ const soundpad = props => {
                 onKeyDown={props.keyPress}
                 tabIndex="0"
                 id={props.id}
+                className="drum-pad"
             >
-                {props.hotkey}
+                <p>{props.hotkey}</p>
                 {/* <audio src={props.sound} /> */}
             </div>
         </div>
