@@ -7,7 +7,24 @@ class DrumMachine extends Component {
 	state = {
 		data: [...data]
 	};
+	componentDidMount() {
+		console.log("componentDidMount");
+		document.getElementById("clap").focus();
+	}
 
+	playSound = el => {
+		const sound = new Audio(el);
+		return sound.play();
+	};
+	keyPressed = el => {
+		console.log(el.keyCode);
+		this.state.data.map(item => {
+			if (el.keyCode === item.keyCode) {
+				return this.playSound(item.source);
+			}
+			return null;
+		});
+	};
 	render() {
 		const instruments = this.state.data.map((el, index) => {
 			return (
@@ -17,6 +34,8 @@ class DrumMachine extends Component {
 					hotkey={el.hotkey}
 					keyCode={el.keyCode}
 					sound={el.source}
+					playSound={() => this.playSound(el.source)}
+					keyPress={this.keyPressed}
 				/>
 			);
 		});

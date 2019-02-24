@@ -6,9 +6,14 @@ const soundpad = props => {
 
 	return (
 		<div className="Wrapper">
-			<div onClick={props.playSound}>
+			<div
+				onClick={props.playSound}
+				onKeyDown={props.keyPress}
+				tabIndex="0"
+				id={props.id}
+			>
 				{props.hotkey}
-				<audio ref={myRef} src={props.sound} autoPlay />
+				<audio ref={myRef} src={props.sound} />
 			</div>
 		</div>
 	);
