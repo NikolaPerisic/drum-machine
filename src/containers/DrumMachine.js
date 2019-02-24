@@ -15,8 +15,8 @@ class DrumMachine extends Component {
 					key={index}
 					id={el.id}
 					hotkey={el.hotkey}
-					sound={el.source}
 					keyCode={el.keyCode}
+					sound={el.source}
 				/>
 			);
 		});
