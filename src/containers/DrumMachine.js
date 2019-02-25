@@ -6,7 +6,7 @@ import data from "../assets/Data/Data";
 class DrumMachine extends Component {
     state = {
         data: [...data],
-        display: "TR808 beat monster"
+        display: "TR808 beats"
     };
     componentDidMount() {
         document.addEventListener("keydown", this.keyPressedHandler);
@@ -17,9 +17,9 @@ class DrumMachine extends Component {
     playSoundHandler = (el, i) => {
         const sound = new Audio(el.source);
         this.displayInstrumentHandler(el.id);
-        this.bounceAnimationHandler(el, i);
+        this.bounceAnimationHandler(i);
         setTimeout(() => {
-            this.bounceAnimationHandler(el, i);
+            this.bounceAnimationHandler(i);
         }, 100);
         return sound.play();
     };
@@ -36,11 +36,10 @@ class DrumMachine extends Component {
     displayInstrumentHandler = el => {
         this.setState({ display: el });
     };
-    bounceAnimationHandler = (el, i) => {
+    bounceAnimationHandler = i => {
         let data = [...this.state.data];
         data[i].active ? (data[i].active = false) : (data[i].active = true);
         this.setState({ data: data });
-        console.log(this.state.data);
     };
 
     render() {
@@ -50,7 +49,6 @@ class DrumMachine extends Component {
                     key={index}
                     id={el.id}
                     hotkey={el.hotkey}
-                    sound={el.source}
                     bounce={el.active}
                     playSound={() => this.playSoundHandler(el, index)}
                     keyPress={this.keyPressed}
@@ -59,7 +57,9 @@ class DrumMachine extends Component {
         });
         return (
             <div id="drum-machine">
-                <div id="display">{this.state.display}</div>
+                <div id="display">
+                    <p>{this.state.display.replace("_", " ")}</p>
+                </div>
                 <div className="Wrapper">{soundpads}</div>
             </div>
         );
