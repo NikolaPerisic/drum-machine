@@ -6,7 +6,7 @@ import data from "../assets/Data/Data";
 class DrumMachine extends Component {
     state = {
         data: [...data],
-        display: ""
+        display: "TR808 beat monster"
     };
     componentDidMount() {
         document.addEventListener("keydown", this.keyPressedHandler);
@@ -14,15 +14,20 @@ class DrumMachine extends Component {
     componentWillUnmount() {
         document.removeEventListener("keydown", this.keyPressedHandler);
     }
-    playSoundHandler = el => {
+    playSoundHandler = (el, i) => {
         const sound = new Audio(el.source);
         this.displayInstrumentHandler(el.id);
+        this.bounceAnimationHandler(el, i);
+        setTimeout(() => {
+            this.bounceAnimationHandler(el, i);
+        }, 100);
         return sound.play();
     };
     keyPressedHandler = el => {
         this.state.data.map(item => {
             if (el.keyCode === item.keyCode) {
-                this.playSoundHandler(item);
+                let index = this.state.data.indexOf(item);
+                this.playSoundHandler(item, index);
                 this.displayInstrumentHandler(item.id);
             }
             return null;
@@ -30,6 +35,12 @@ class DrumMachine extends Component {
     };
     displayInstrumentHandler = el => {
         this.setState({ display: el });
+    };
+    bounceAnimationHandler = (el, i) => {
+        let data = [...this.state.data];
+        data[i].active ? (data[i].active = false) : (data[i].active = true);
+        this.setState({ data: data });
+        console.log(this.state.data);
     };
 
     render() {
@@ -40,7 +51,8 @@ class DrumMachine extends Component {
                     id={el.id}
                     hotkey={el.hotkey}
                     sound={el.source}
-                    playSound={() => this.playSoundHandler(el)}
+                    bounce={el.active}
+                    playSound={() => this.playSoundHandler(el, index)}
                     keyPress={this.keyPressed}
                 />
             );

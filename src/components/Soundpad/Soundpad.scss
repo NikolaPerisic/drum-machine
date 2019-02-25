@@ -12,9 +12,7 @@
     color: #fff;
     border-radius: 4px;
     border: 3px solid #171717;
-    .Soundpads:active {
-        transform: scale(1.5);
-    }
+    border-radius: 50%;
 
     .drum-pad {
         width: 100%;
@@ -27,5 +25,12 @@
     .drum-pad p {
         cursor: default;
         text-decoration: none;
+        user-select: none;
+    }
+}
+
+@keyframes bounce {
+    50% {
+        transform: scale(1.2);
     }
 }
