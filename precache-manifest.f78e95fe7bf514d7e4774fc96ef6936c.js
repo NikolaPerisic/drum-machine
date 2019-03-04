@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/drum-machine/static/media/tr808_kick_01.05e519ee.wav"
   },
   {
-    "revision": "258027a7194121d0e4c5",
+    "revision": "e6be245d4806ff52f491",
     "url": "/drum-machine/static/css/main.e852efc7.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/drum-machine/static/media/tr808_closedhat_01.1a694aff.wav"
   },
   {
-    "revision": "258027a7194121d0e4c5",
-    "url": "/drum-machine/static/js/main.258027a7.chunk.js"
+    "revision": "e6be245d4806ff52f491",
+    "url": "/drum-machine/static/js/main.e6be245d.chunk.js"
   },
   {
     "revision": "bf9a5194b4f48d0bfc2be675ca564dad",
@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/drum-machine/static/media/bckgrnd3.783c45de.jpeg"
   },
   {
-    "revision": "08194452a36aa66f1a8fc37f0cf24be6",
+    "revision": "c36d272f24d7849d83c9606c695227f0",
     "url": "/drum-machine/index.html"
   }
 ];
