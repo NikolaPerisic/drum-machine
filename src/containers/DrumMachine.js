@@ -19,7 +19,7 @@ class DrumMachine extends Component {
             keyCode: 87,
             active: false
         },
-        closethat: {
+        closedhat: {
             id: "closedhat",
             hotkey: "E",
             source: sounds.closedHat,
